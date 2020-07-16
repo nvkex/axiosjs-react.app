@@ -14,7 +14,11 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/new-post">New Post</Link></li>
+                            <li><Link to={{
+                                pathname: this.props.match.url + '/new-post',
+                                hash: '#submit',
+                                search:'?q=hello'
+                            }}>New Post</Link></li>
                         </ul>
                     </nav>
                 </header>    
