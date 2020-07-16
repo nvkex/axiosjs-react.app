@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './Blog.css';
 // import Axios from 'axios';
@@ -7,18 +7,25 @@ import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
 
 class Blog extends Component {
+
     render() {
         return (
             <div className = "Blog">
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to={{
-                                pathname: this.props.match.url + '/new-post',
+                            <li><NavLink 
+                                to="/" 
+                                exact
+                                activeClassName="active"
+                                activeStyle={{
+                                    textDecoration:'underline'
+                                }}>Home</NavLink></li>
+                            <li><NavLink to={{
+                                pathname: '/new-post',
                                 hash: '#submit',
                                 search:'?q=hello'
-                            }}>New Post</Link></li>
+                            }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>    
